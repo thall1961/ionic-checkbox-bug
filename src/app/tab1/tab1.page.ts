@@ -16,9 +16,12 @@ export class Tab1Page {
     setShow(show: number) {
         console.log('show', show);
         if (show === this.showContactForm && show === -1) {
+            console.log('show and -1', show, this.showContactForm, this.lastPaxIndex);
             this.showContactForm = this.lastPaxIndex;
         } else if (show === this.showContactForm && show !== -1) {
             this.showContactForm = -1;
+        } else if (show === -1) {
+            this.showContactForm = show;
         } else {
             this.showContactForm = show;
             this.lastPaxIndex = show;

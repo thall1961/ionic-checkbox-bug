@@ -3,9 +3,13 @@
     <ion-card-content>
       <div class="ion-margin-top">
         <ion-item lines="none">
-          <ion-checkbox (click)="toggleDefaultContact()" [checked]="showForm" formControlName="newContact" id="defaultContact" color="medium" mode="ios"></ion-checkbox>
-          <ion-label color="primary" class="ion-text-wrap">{{showForm}} Make this passenger my default contact</ion-label>
+          <ion-checkbox (click)="toggleDefaultContact()" formControlName="newContact" id="defaultContact" color="medium" mode="ios"></ion-checkbox>
+          <ion-label color="primary" class="ion-text-wrap">Make this passenger my default contact</ion-label>
         </ion-item>
+      </div>
+      <div class="ion-margin-vertical">
+        <label for="pax{{num}}">showForm: {{showForm}} - newContact: {{passengerForm.controls.newContact.value}}</label>
+        <input type="checkbox" id="pax{{num}}" (click)="toggleDefaultContact()" formControlName="newContact">
       </div>
     </ion-card-content>
   </ion-card>

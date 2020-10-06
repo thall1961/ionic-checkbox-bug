@@ -13,8 +13,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-
   <app-passenger (toggleShowForm)="setShow($event)" [showForm]="showContactForm === 0" [num]="0"></app-passenger>
   <app-passenger (toggleShowForm)="setShow($event)" [showForm]="showContactForm === 1" [num]="1"></app-passenger>
   <app-contact (toggleShowForm)="setShow($event)" [showForm]="showContactForm === -1"></app-contact>

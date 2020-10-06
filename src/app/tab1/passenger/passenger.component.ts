@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -6,7 +6,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: './passenger.component.html',
   styleUrls: ['./passenger.component.scss'],
 })
-export class PassengerComponent implements OnInit {
+export class PassengerComponent implements OnInit, OnChanges {
 
   passengerForm: FormGroup;
 
@@ -18,9 +18,12 @@ export class PassengerComponent implements OnInit {
 
   ngOnInit() {
     this.passengerForm = this.formBuilder.group({
-      firstName: ['Jimmy', [Validators.required]],
-      newContact: [true, [Validators.required]]
+      newContact: [this.showForm, [Validators.required]]
     });
+  }
+
+  ngOnChanges(simpleChanges: SimpleChanges) {
+     this.passengerForm?.controls?.newContact.setValue(simpleChanges?.showForm?.currentValue)
   }
 
   toggleDefaultContact() {
