@@ -1,0 +1,11 @@
+<form [formGroup]="contactForm">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-checkbox formControlName="newContact" (click)="toggleNewContact()" [checked]="showForm" color="medium" mode="ios"></ion-checkbox>
+        <ion-label class="ion-margin-horizontal">{{showForm}} Add New Contact</ion-label>
+      </ion-item>
+      <p *ngIf="showForm">This should only show up if showForm is true in the contact form component</p>
+    </ion-card-content>
+  </ion-card>
+</form>

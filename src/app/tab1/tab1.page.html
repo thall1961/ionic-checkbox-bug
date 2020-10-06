@@ -9,9 +9,13 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="medium">Click the checkboxes</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <app-passenger (toggleShowForm)="setShow($event)" [showForm]="showContactForm === 0" [num]="0"></app-passenger>
+  <app-passenger (toggleShowForm)="setShow($event)" [showForm]="showContactForm === 1" [num]="1"></app-passenger>
+  <app-contact (toggleShowForm)="setShow($event)" [showForm]="showContactForm === -1"></app-contact>
 </ion-content>

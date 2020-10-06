@@ -1,0 +1,12 @@
+<form [formGroup]="passengerForm">
+  <ion-card class="ion-padding ion-margin-vertical">
+    <ion-card-content>
+      <div class="ion-margin-top">
+        <ion-item lines="none">
+          <ion-checkbox (click)="toggleDefaultContact()" [checked]="showForm" formControlName="newContact" id="defaultContact" color="medium" mode="ios"></ion-checkbox>
+          <ion-label color="primary" class="ion-text-wrap">{{showForm}} Make this passenger my default contact</ion-label>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</form>
