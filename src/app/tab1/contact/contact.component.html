@@ -5,11 +5,6 @@
         <ion-checkbox [checked]="showForm" formControlName="newContact" (click)="toggleNewContact($event)" color="medium" mode="ios"></ion-checkbox>
         <ion-label class="ion-margin-horizontal">Add New Contact</ion-label>
       </ion-item>
-
-<!--      <div class="ion-margin-vertical">-->
-<!--        <label for="pax&#45;&#45;1">showForm: {{showForm}} - newContact: {{contactForm.controls.newContact.value}}</label>-->
-<!--        <input type="checkbox" id="pax&#45;&#45;1" (click)="toggleNewContact()" [checked]="showForm">-->
-<!--      </div>-->
       <p *ngIf="showForm">This should only show up if showForm is true in the contact form component</p>
     </ion-card-content>
   </ion-card>

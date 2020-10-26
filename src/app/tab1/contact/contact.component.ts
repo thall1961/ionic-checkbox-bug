@@ -28,6 +28,7 @@ export class ContactComponent implements OnInit, OnChanges {
   }
 
   toggleNewContact(event) {
+    event.stopImmediatePropagation();
     console.log('ev', event.target.checked);
     const emittedValue: EmitValue = {
       newValue: event.target.checked,
