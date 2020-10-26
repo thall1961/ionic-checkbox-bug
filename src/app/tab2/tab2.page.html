@@ -13,5 +13,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <p>binding the ngModel with checked and secondChecked</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="checked" mode="ios"></ion-checkbox>
+        <ion-label class="ion-margin-horizontal">{{checked}} Add New Contact</ion-label>
+      </ion-item>
+      <ion-button class="ion-margin-top" (click)="setChecked()">Change Checked</ion-button>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="secondChecked" mode="ios"></ion-checkbox>
+        <ion-label class="ion-margin-horizontal">{{secondChecked}} Add New Contact + Other Stuff</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <p>Checkboxes with the setChecked() set to the (click) event</p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="thirdChecked" (click)="setSecondChecked()" mode="ios"></ion-checkbox>
+        <ion-label class="ion-margin-horizontal">{{thirdChecked}} Add New Contact</ion-label>
+      </ion-item>
+      <ion-button class="ion-margin-top" (click)="setSecondChecked()">Change Checked</ion-button>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="fourthChecked" (click)="setSecondChecked()" mode="ios"></ion-checkbox>
+        <ion-label class="ion-margin-horizontal">{{fourthChecked}} Add New Contact + Other Stuff</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

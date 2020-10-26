@@ -7,6 +7,21 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  checked = false;
+  secondChecked = true;
+  thirdChecked = false;
+  fourthChecked = true;
+
   constructor() {}
+
+  setChecked() {
+    this.checked = !this.checked;
+    this.secondChecked = !this.secondChecked;
+  }
+
+  setSecondChecked() {
+    this.thirdChecked = !this.thirdChecked;
+    this.fourthChecked = !this.fourthChecked;
+  }
 
 }

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {EmitValue} from "../../EmitValue.model";
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +12,7 @@ export class ContactComponent implements OnInit, OnChanges {
   contactForm: FormGroup;
 
   @Input() showForm = false;
-  @Output() toggleShowForm = new EventEmitter<number>();
+  @Output() toggleShowForm = new EventEmitter<EmitValue>();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -26,8 +27,14 @@ export class ContactComponent implements OnInit, OnChanges {
     this.contactForm?.controls?.newContact.setValue(simpleChanges?.showForm?.currentValue)
   }
 
-  toggleNewContact() {
-    this.toggleShowForm.emit(-1);
+  toggleNewContact(event) {
+    console.log('ev', event.target.checked);
+    const emittedValue: EmitValue = {
+      newValue: event.target.checked,
+      paxNum: -1
+    }
+
+    this.toggleShowForm.emit(emittedValue);
   }
 
 }

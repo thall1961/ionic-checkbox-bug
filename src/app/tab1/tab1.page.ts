@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {EmitValue} from "../EmitValue.model";
 
 @Component({
     selector: 'app-tab1',
@@ -13,21 +14,18 @@ export class Tab1Page {
     constructor() {
     }
 
-    setShow(show: number) {
-        console.log('show', show);
-        if (show === this.showContactForm && show === -1) {
-            console.log('show and -1', show, this.showContactForm, this.lastPaxIndex);
+    setShow(emittedValue: EmitValue) {
+        console.log('emittedValue', emittedValue);
+        if (emittedValue.paxNum === this.showContactForm && emittedValue.paxNum === -1) {
             this.showContactForm = this.lastPaxIndex;
-        } else if (show === this.showContactForm && show !== -1) {
+        } else if (emittedValue.paxNum === this.showContactForm && emittedValue.paxNum !== -1) {
             this.showContactForm = -1;
-        } else if (show === -1) {
-            this.showContactForm = show;
+        } else if (emittedValue.paxNum === -1) {
+            this.showContactForm = emittedValue.paxNum;
         } else {
-            this.showContactForm = show;
-            this.lastPaxIndex = show;
+            this.showContactForm = emittedValue.paxNum;
+            this.lastPaxIndex = emittedValue.paxNum;
         }
-        console.log('showCon', this.showContactForm);
-        console.log('last', this.lastPaxIndex);
     }
 
 }
